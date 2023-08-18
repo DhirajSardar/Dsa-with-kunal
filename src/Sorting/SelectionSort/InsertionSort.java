@@ -4,27 +4,32 @@ import java.util.Arrays;
 
 public class InsertionSort {
     public static void main(String[] args) {
-        int []arr = {1,2,10,4,5};insertion_sort(arr);
+        int []arr = {1,3,45,67,2,4,5};
+        insertionSort(arr);
+
         System.out.println(Arrays.toString(arr));
     }
-
-    static  void insertion_sort(int arr[])
+    static void insertionSort(int []arr)
     {
-        for (int i = 0; i <= arr.length-2; i++) {
-            for (int j = 1; j <=arr.length-1 ; j++) {
-              if ( arr[j+1]<arr[j])
-              {
-                      swap(arr,j,j+1);
-              }
+        for (int i =0;i<arr.length-1;i++)
+        {
+            for (int j = i+1;j>0;j--)
+            {
+                if (arr[j]<arr[j-1])
+                {
+                    swap (arr,j,j-1);
+                }
+                else {
+                    break;
+                }
             }
         }
-
     }
-    static  void swap   (int []asr, int start ,int end )
-    {
-        int temp = start;
-        start = end ;
-        end=temp;
 
+    static void swap (int []arr,  int start,int end  )
+    {
+        int temp= arr[start];
+        arr[start]=arr[end];
+        arr[end]= temp;
     }
 }
